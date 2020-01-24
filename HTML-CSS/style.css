@@ -20,6 +20,11 @@
 @media (max-width: 576px) {
   
 }
+
+.logocolor{
+    color:indigo;
+}
+
 .dropdown-item:hover{
     background-color:lightblue;
 }
@@ -61,13 +66,35 @@ figure {
   will-change: transform;
 }
 
-.img-fluid{
-    background-color: aqua;
+.jumbotron .abc{
+  width: 75px;
+  color:white;
+  font-size: 300%;
+  height: 75px;
+  background-color: cornflowerblue;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.img-fluid:hover{
-    opacity: 0.3;
+.show{
+  width: 10px;
 }
+
+.aoverlay{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  background-color: rgb(200,200,200);
+  transition: all 1s;
+}
+
+.show:hover .aoverlay{
+  opacity: 0.85;
+}
+
 
 form{
     background-image: url('https://images.pexels.com/photos/56832/road-asphalt-space-sky-56832.jpeg?cs=srgb&dl=road-landscape-nature-sky-56832.jpg&fm=jpg');
