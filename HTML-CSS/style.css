@@ -76,7 +76,7 @@ figure {
   margin-right: auto;
 }
 
-.show{
+.showdiv{
   width: 10px;
 }
 
@@ -91,7 +91,7 @@ figure {
   transition: all 1s;
 }
 
-.show:hover .aoverlay{
+.showdiv:hover .aoverlay{
   opacity: 0.85;
 }
 
