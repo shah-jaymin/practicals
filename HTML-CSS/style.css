@@ -46,6 +46,10 @@ form {
     background-position: center;
 }
 
+input, textarea{
+       opacity:0.9;
+    }
+
 /*--- Bootstrap Padding Fix --*/
 [class*="col-"] {
     padding: 1rem;
