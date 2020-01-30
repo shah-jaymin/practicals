@@ -58,7 +58,7 @@
 </div>
 
 <!--- Three Column Section -->
-<div class="container-fluid jumbotron">
+<div class="container-fluid bg-light jumbotron">
 <div class="container">
     <div class="row text-center">
         <div class="col-xs-12 col-sm-6 col-md-4">
@@ -159,8 +159,8 @@
     <br>
     <textarea style="width:100%;" name="" id="" rows="5" class="form-control" placeholder="Message"></textarea>
     <br>
-    <input style="float: left; display: inline-block;" type="checkbox"><span style="float: left;">Subscribe Newsletter</span>
-    <input style="float: right; display: inline-block;" class="btn btn-primary" type="submit" value="Send">
+    <input style="float: left;" type="checkbox"><span style="float: left;">Subscribe Newsletter</span>
+    <input style="float: right;" class="btn btn-primary" type="submit" value="Send">
 		<br>
 		<br>
 		</div>
@@ -170,7 +170,7 @@
 
 <!--- Footer -->
 <footer>
-    <div class="container-fluid bg-secondary">
+    <div class="container-fluid bg-light">
         <div class="container">
             <div class="row">
 							<div class="col-10">
@@ -179,13 +179,17 @@
 	            <div class="col-2">
 	                <a href="#" class="fab fa-facebook social"></a>
 	                <a href="#" class="fab fa-twitter social"></a>
-	                <a href="#" class="fab fa-google-plus-g social"></a>
-	                <a href="#" class="fab fa-youtube social"></a>
+	                <a href="https://www.google.com" target="_blank"><i class="fab fa-google-plus-g social"></i></a>
+	                <a href="#" onclick="func()" class="fab fa-youtube social"></a>
 	            </div>
 						</div>
         </div>
     </div>
 </footer>
-
+<script>
+function func() {
+	window.open("https://www.w3schools.com");
+}
+</script>
 </body>
 </html>
