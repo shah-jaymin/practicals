@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <style>
+  h2, #time, #date, #stopwatch{
+    display: inline;
+  }
+  </style>
+</head>
+<body>
+<div class="border" style="width:max-content">
+<h2>Time&ensp;</h2>
+<h1 id="time"></h1>
+<h2>&emsp;Date&ensp;</h2>
+<h1 id="date"></h1>
+<br>
+<br>
+<h2>Stopwatch&ensp;</h2>
+<h1 id="stopwatch">00:00:00:00</h1>
+<br>
+<br>
+<div class="text-center">
+<button onclick="timer()" id="start" class="btn btn-primary">Start</button>
+<button onclick="stop()" id="stop" class="btn btn-primary" disabled="true">Stop</button>
+<button onclick="resume()" id="resume" class="btn btn-primary" disabled="true">Resume</button>
+<button onclick="reset()" id="reset" class="btn btn-primary">Reset</button>
+</div>
+</div>
+<script>
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+update();
+function update(){
+  var d = new Date();
+  document.getElementById("time").innerHTML = ('0' + d.getHours()).slice(-2)+":";
+  document.getElementById("time").innerHTML += ('0' + d.getMinutes()).slice(-2)+":";
+  document.getElementById("time").innerHTML += ('0' + d.getSeconds()).slice(-2);
+  document.getElementById("date").innerHTML = ('0' + d.getDate()).slice(-2);
+  document.getElementById("date").innerHTML += "&nbsp;"+months[d.getMonth()];
+  document.getElementById("date").innerHTML += "&nbsp;"+d.getFullYear();
+}
+setInterval(update,1000);
+
+var centi=0, seconds = 0, minutes = 0, hours = 0;
+var temp;
+
+function add(){
+    centi++;
+  if(centi >= 99)
+  {
+    centi = 0;
+    seconds++;
+    if(seconds >= 60){
+        seconds = 0;
+        minutes++;
+        if(minutes >= 60){
+            minutes = 0;
+            hours++;
+        }
+    }
+  }
+    stopwatch.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds ? (seconds > 9 ? seconds : "0" + seconds) : "00") + ":" + (centi > 9 ? centi : "0" + centi);
+    timer();
+}
+
+function timer(){
+  document.getElementById("start").disabled = true;
+  document.getElementById("resume").disabled = true;
+  document.getElementById("stop").disabled = false;
+  temp = setTimeout(add, 10);
+}
+
+function stop(){
+  document.getElementById("resume").disabled = false;
+  document.getElementById("stop").disabled = true;
+  clearTimeout(temp);
+}
+
+function resume(){
+  temp = setTimeout(add, 10);
+}
+
+function reset(){
+  document.getElementById("start").disabled = false;
+  document.getElementById("resume").disabled = true;
+  document.getElementById("stop").disabled = true;
+  clearTimeout(temp);
+  centi = 0; seconds = 0; minutes = 0; hours = 0;
+  stopwatch.textContent = "00:00:00:00";
+}
+</script>
+</body>
+</html>
