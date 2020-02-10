@@ -26,40 +26,45 @@
     </tr>
 </table>
 <script>
+    let ind;
 function addRow() {
 
     var first = document.getElementById("first");
     var last = document.getElementById("last");
     var table = document.getElementById("data");
 
+    if(document.getElementById("add").value == "Add"){
+        var rowCount = table.rows.length;
+        var row = table.insertRow(rowCount);
+        row.insertCell(0).innerHTML=first.value;
+        row.insertCell(1).innerHTML=last.value;
+        row.insertCell(2).innerHTML='<input type="button" value = "Edit" onClick="Javascript:editRow(this, first, last)">';
+        row.insertCell(3).innerHTML='<input type="button" value = "Delete" onClick="Javascript:deleteRow(this)">';
+        first.value=null;
+        last.value=null;
+    }
 
-    var rowCount = table.rows.length;
-    var row = table.insertRow(rowCount);
-
-    row.insertCell(0).innerHTML=first.value;
-    row.insertCell(1).innerHTML=last.value;
-    row.insertCell(2).innerHTML='<input type="button" value = "Edit" onClick="Javascript:editRow(this, first, last)">';
-    row.insertCell(3).innerHTML='<input type="button" value = "Delete" onClick="Javascript:deleteRow(this)">';
+    else{
+        document.querySelector("#add").value = "Add";
+        table.rows[ind].cells[0].innerHTML=first.value;
+        table.rows[ind].cells[1].innerHTML=last.value;
+    }
 
 }
 
 function editRow(obj, first, last) {
-    var ind=obj.parentNode.parentNode.rowIndex;
-
     var fname = obj.parentNode.parentNode.firstElementChild.innerHTML;
     var lname = obj.parentNode.parentNode.firstElementChild.nextElementSibling.innerHTML;
+    ind = obj.parentNode.parentNode.rowIndex;
+    document.querySelector("#add").value = "Update";
     first.value = fname;
     last.value = lname;
-
-    document.querySelector("#add").value = "Update";
-
 }
 
 function deleteRow(obj) {
 
     var index = obj.parentNode.parentNode.rowIndex;
-    var table = document.getElementById("data");
-    console.log(table[index]);
+    table = document.getElementById("data");
     table.deleteRow(index);
 
 }

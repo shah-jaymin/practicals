@@ -10,18 +10,41 @@
   h2, #time, #date, #stopwatch{
     display: inline;
   }
+  body{
+    background-image: url('index.jpg');
+    background-size: cover;
+  }
+  #center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  #logo{
+    text-align: center;
+  }
+  #fluid{
+    background-color: whitesmoke;
+  }
   </style>
 </head>
 <body>
-<div class="border" style="width:max-content">
+  <div class="container-fluid" id='fluid'>
+<div id="logo">
+<img id="logo-main" src="stopwatch.jpeg" width="200" alt="Stopwatch Logo">
+</div>
+</div>
+<div id='center' style="width:max-content; border: 5px solid white; border-radius: 33px; padding: 33px;">
 <h2>Time&ensp;</h2>
 <h1 id="time"></h1>
 <h2>&emsp;Date&ensp;</h2>
 <h1 id="date"></h1>
 <br>
 <br>
-<h2>Stopwatch&ensp;</h2>
-<h1 id="stopwatch">00:00:00:00</h1>
+<div style="text-align: center;">
+  <h2>Stopwatch&ensp;</h2>
+  <h1 id="stopwatch">00:00:00:00</h1>  
+</div>
 <br>
 <br>
 <div class="text-center">
