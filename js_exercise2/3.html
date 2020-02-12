@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array = new Array();
+        let i,j,freq,max=0,id;
+        let size = prompt("Enter number of elements");
+        for(i=0; i<size; i++)
+        {
+            array[i] = prompt("Enter element " + (i+1));
+        }
+        for(i=0; i<size; i++)
+        {
+            freq=0;
+            for(j=0; j<size; j++)
+            {
+                if(array[i]==array[j])
+                    freq++;
+            }
+            if(freq>max)
+            {
+                max=freq;
+                id=array[i];
+            }
+        }
+        console.log(`${id} has the max frequency of ${max}`);
+    </script>
+</body>
+</html>

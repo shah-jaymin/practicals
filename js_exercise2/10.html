@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let d=new Date();
+        let y=prompt("Enter a year","");
+        let m=prompt("Enter a month","");
+        let dy=prompt("Enter a day","");
+        let h=prompt("Enter an hour","");
+        let mi=prompt("Enter minutes","");
+        let e=new Date(y, m-1, dy, h, mi);
+        let time=(d.getTime()-e.getTime())/1000;
+        time/=60;
+        let minutes=Math.floor(time);
+        time/=60;
+        let hours=Math.floor(time);
+        time/=24;
+        let days=Math.floor(time);
+        time/=7;
+        let weeks=Math.floor(time);
+        time/=4;
+        let months=Math.floor(time);
+        time/=12;
+        let years=Math.floor(time);
+        console.log(`Years: ${years} OR Months: ${months} OR Weeks: ${weeks} OR Days: ${days} OR Hours: ${hours} OR Minutes: ${minutes}`);
+    </script>
+</body>
+</html>

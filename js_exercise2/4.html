@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = new Array();
+        let i,value;
+        let size = prompt("Enter number of elements");
+        for(i=0; i<size; i++)
+        {
+            arr[i] = prompt("Enter element " + (i+1));
+        }
+        for(i=0; i<size; i++)
+        {
+            value=Math.floor(Math.random()*size);
+            temp=arr[i];
+            arr[i]=arr[value];
+            arr[value]=temp;
+        }
+        console.log(arr);
+    </script>
+</body>
+</html>
