@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        hide = function(email){
+            let arr=email.split('@');
+            let avg=arr[0].length/2;
+            email1=arr[0].substring(0, avg);
+            let hidden=new Array();
+            let i;
+            for(i=0; i<(arr[0].length-avg-1);i++)
+            {
+                hidden[i]='*';
+            }
+            hidden=hidden.join('');
+            newEmail=email1+hidden+arr[0][arr[0].length-1]+'@'+arr[1];
+            console.log(newEmail);
+        }
+        hide('jaymin.shah@rapidops.com')
+    </script>
+</body>
+</html>

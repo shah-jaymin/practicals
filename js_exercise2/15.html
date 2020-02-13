@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function validateEmail(mail) {
+            if (mail.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/))
+            {
+                return (true)
+            }
+            alert("You have entered an invalid email address!")
+            return (false)
+        }
+        let email=prompt("Enter an email id");
+        console.log(validateEmail(email));
+    </script>
+</body>
+</html>

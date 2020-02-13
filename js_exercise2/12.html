@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        insertString = function(str1, str2, pos=1){
+            let str3 = str1.slice(0, pos);
+            let str4 = str1.slice(pos,str1.length);
+            return (str3+str2+str4);
+        };
+        let str1=prompt("Enter string 1");
+        let str2=prompt("Enter string 2");
+        let pos=prompt("Enter a position");
+        console.log(insertString(str1, str2, pos));
+    </script>
+</body>
+</html>

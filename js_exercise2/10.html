@@ -8,27 +8,30 @@
 </head>
 <body>
     <script>
-        let d=new Date();
-        let y=prompt("Enter a year","");
-        let m=prompt("Enter a month","");
-        let dy=prompt("Enter a day","");
-        let h=prompt("Enter an hour","");
-        let mi=prompt("Enter minutes","");
-        let e=new Date(y, m-1, dy, h, mi);
-        let time=(d.getTime()-e.getTime())/1000;
-        time/=60;
-        let minutes=Math.floor(time);
-        time/=60;
-        let hours=Math.floor(time);
-        time/=24;
-        let days=Math.floor(time);
-        time/=7;
-        let weeks=Math.floor(time);
-        time/=4;
-        let months=Math.floor(time);
-        time/=12;
-        let years=Math.floor(time);
-        console.log(`Years: ${years} OR Months: ${months} OR Weeks: ${weeks} OR Days: ${days} OR Hours: ${hours} OR Minutes: ${minutes}`);
+        let str1=prompt("Enter date as MM/DD/YYYY");
+        let d = new Date(str1);
+        let str2=prompt("Enter date as MM/DD/YYYY");
+        let e = new Date(str2);
+        let diff = (Math.abs(d-e))/1000/60/60/24;
+        let days=0;
+        let months=0;
+        let years=0;
+        while(diff)
+        {
+            days++;
+            diff--;
+            if(days==30)
+            {
+                months++;
+                days=0;
+            }
+            if(months==12)
+            {
+                years++;
+                months=0;
+            }
+        }
+        console.log(`Time Difference: ${years} years, ${months} months and ${days} days`);
     </script>
 </body>
 </html>

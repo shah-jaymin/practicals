@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table id='t' border='1.5px'></table>
+    <button onclick="createTable()">Click Me!</button>
+    <script>
+        function createTable()
+        {
+            let row, column, x, y, r, c;
+            row=prompt("Enter number of rows");
+            column=prompt("Enter number of columns");
+            for(r=0;r<row;r++)
+            {
+                x=document.getElementById('t').insertRow(r);
+                for(c=0;c<column;c++)
+                {
+                    y=x.insertCell(c);
+                    y.innerHTML="Row-"+(r+1)+"\nColumn-"+(c+1);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

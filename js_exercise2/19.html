@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr=new Array();
+        let i;
+        arr = [{id: 1, name: "Jaymin"}, {id:2, name: "Mitesh"}, {id:3, name: "Raj"}];
+        console.log(`Original array: `);
+        console.log(arr);
+        let n=prompt("Enter id number of object to delete");
+        for(i=0; i<arr.length; i++)
+        {
+            if(arr[i].id==n)
+            {
+                arr.splice(i, 1);
+            }
+        }
+        let pos=prompt("Enter position to insert object");
+        let str1=prompt("Enter the id no.");
+        let str2=prompt("Enter the name");
+        arr.splice(pos,0,{id: str1, name: str2});
+        console.log(`Modified array: `);
+        console.log(arr);
+    </script>
+</body>
+</html>

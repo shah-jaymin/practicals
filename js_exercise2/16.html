@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <form action='#'>
+        <input type="number" id="num">
+        <input type="submit" onclick="comma()">
+    </form>
+</head>
+<body>
+    <script>
+        comma = function(){
+            let output=document.getElementById('num').value;
+            let output2="";
+            let counter=0;
+            let i=output.length-1;
+            for(;i>=0;i--, counter++){
+                if(counter==3)
+                {
+                    output2=','+output2;
+                    counter=0;
+                }
+                output2=output[i]+output2;
+            }
+            alert(output2);
+            document.getElementById('num').value=null;
+        }
+    </script>
+</body>
+</html>

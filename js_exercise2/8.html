@@ -15,7 +15,7 @@
         let h=prompt("Enter an hour","");
         let mi=prompt("Enter minutes","");
         let e=new Date(y, m-1, dy, h, mi);
-        let time=(d.getTime()-e.getTime())/1000;
+        let time=(Math.abs(d.getTime()-e.getTime()))/1000;
         time/=60;
         let minutes=Math.floor(time);
         time/=60;

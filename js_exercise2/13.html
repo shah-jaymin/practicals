@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        string_chop = function(str, num){
+            //let arr=[...str]
+            let i,j=1;
+            let arr=new Array();
+            for(i=0;i<str.length;i=i+2){
+                arr.push([str[i],str[i+1]])
+            }
+            return arr;
+        }
+        console.log(string_chop('RapidOpsSolution’',2));
+    </script>
+</body>
+</html>
