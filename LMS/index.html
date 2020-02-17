@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel = "stylesheet" type = "text/css" href = "myStyle.css" />
+</head>
+<body>
+            <div class="container">
+                <div class='hide show'>
+                    <img src="https://img.icons8.com/nolan/100/login-rounded-right.png">
+                </div>
+                <div class='hide'>
+                    <img src="https://img.icons8.com/bubbles/100/000000/cloud-account-login-male.png">
+                </div>
+                <div class='hide'>
+                    <img src="https://img.icons8.com/bubbles/100/000000/cloud-account-login-female.png">
+                </div>
+                <div class="inner">
+                    <nav>
+                        <div class="login select">
+                            Login
+                        </div>
+                        <div class="signup">
+                            Signup
+                        </div> 
+                    </nav>
+                    <div class="loginContent hide show">
+                        <div>
+                            <label>Username: </label>
+                            <input type="text" id='userInput'>
+                        </div>
+                        <div>
+                            <label>Password: </label>
+                            <input type="password" id='passInput'>
+                        </div>
+                        <div>
+                            <button onclick="signIn()">Log In</button>
+                        </div>
+                    </div>
+                    <div class="signupContent hide">
+                        <div>
+                            <label>Username: </label>
+                            <input type="text" id="user">
+                        </div>
+                        <div>
+                            <label>Password: </label>
+                            <input type="password" id="pass">
+                        </div>
+                        <div>
+                            <label>Confirm Password</label>
+                            <input type="password" id="pass2">
+                        </div>
+                        <div>
+                            <span style="font-size: 16px; padding-right: 10px;">User Type:</span>
+                            <input type="radio" id="student" name="userType" value="student" checked="checked">
+                            <span>Student</span>
+                            &ensp;
+                            <input type="radio" id="admin" name="userType" value="admin">
+                            <span>Admin</span>
+                        </div>
+                        <div>
+                            <button onclick="assign()">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <script src="myIndex.js"></script>
+</body>
+</html>

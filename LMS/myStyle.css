@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+body {
+    background-color: whitesmoke;
+    font-family: 'Roboto', sans-serif;
+}
+.container{
+    width: 40%;
+    position: absolute;
+    left: 50%;  
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.container img {
+    display: block;
+    margin: auto;
+}
+.inner{
+    border: 1px solid gainsboro;
+    background: white;
+}
+.container nav {
+    display: flex;
+    border-bottom: 1px dotted gainsboro;
+    cursor: pointer;
+}
+.container nav div {
+    flex: auto;
+    padding: 25px;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+}
+.loginContent, .signupContent {
+    padding: 15px;
+}
+.loginContent div, .signupContent div {
+    margin: 15px;
+}
+.container div input[type=text], .container div input[type=password] {
+    width: 100%;
+    font-size: medium;
+    box-sizing: border-box;
+    border: 1px solid lightgray;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+.container div input[type=text]:focus, .container div input[type=password]:focus{
+    border-color: maroon;
+    transition: ease-in-out 0.5s;
+}
+.select {
+    border-bottom: 2px solid maroon;
+}
+button {
+    width: 100%;
+    background-color: maroon;
+    color: black;
+    font-size: x-large;
+    cursor: pointer;
+    padding: 20px;
+}
+button:hover {
+    opacity: 0.85;
+    transition: ease-in-out 0.5s;
+}
+.hide {
+    display: none;
+}
+.show {
+    display: block;
+}
