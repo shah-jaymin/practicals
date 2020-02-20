@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <title>Admin Panel</title>
     <!-- Required meta tags -->
@@ -22,7 +21,7 @@
         <div class="container">
             <div class="navbar">
                 <h3 style="color: white">Rapidops</h3 style="color: whitesmoke">
-                <button class="btn btn-primary" id="logout" style="ml-auto;">Logout</button>
+                <button class="btn btn-primary" id="logout">Logout</button>
             </div>
         </div>
     </header>
@@ -71,6 +70,27 @@
             <div class="col-9">
                 <div id="courseArea" class='row'>
                     
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Assign Course</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body insertText">
+                                <ul class="list-group">
+                                    <div id="listing">
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-1">

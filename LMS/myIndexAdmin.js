@@ -1,68 +1,93 @@
-let str;
 let data;
 let userId;
-let x= new Array();
-let len;
 let i;
-let j=0;
+let j = 0;
+let k;
 let temp;
 let name, link, image;
-let arr=JSON.parse(localStorage.getItem('courses'))||[];
+let arr = JSON.parse(localStorage.getItem('courses')) || [];
+let cred = JSON.parse(localStorage.getItem("info"));
+let lenCred = cred.length;
+let cred2;
+let tempflag=0;
 displayCourse();
-function displayCourse()
-{
-    if(sessionStorage.length==1)
-    {
+
+function displayCourse() {
+    if (sessionStorage.getItem("isLogin") == null) {
         window.location.replace("index.html");
-    }
-    userId=sessionStorage.getItem("isLogin");
-    for ( i = 0 ; i < localStorage.length; ++i ) {
-        data=localStorage.getItem(localStorage.key(i));
-        str=JSON.parse(data).isAdmin;
-        if(!str)
-            document.getElementById('listing').innerHTML+=`<li class="list-group-item">${localStorage.key(i)}&ensp;<button style="margin-left: 50px;" value=${localStorage.key(i)} onclick="addCourse(this.value)" class="btn btn-primary">HTML</button>&ensp;<button style="margin-left: 50px;" value=${localStorage.key(i)} onclick="addCourse(this.value)" class="btn btn-primary">CSS</button>&ensp;<button style="margin-left: 50px;" value=${localStorage.key(i)} onclick="addCourse(this.value)" class="btn btn-primary">Javascript</button></li>`;
+    } else {
+        userId = sessionStorage.getItem("isLogin");
+        showCourse();
     }
 }
 
-function isInclude(user, course) {
-    if( !x.includes(course) ) {
-        len=JSON.parse(str).courses.length;
-        x[len]=course;
-        temp = JSON.stringify( {password: JSON.parse(str).password, isAdmin: false, courses: x} );
-        localStorage.setItem(user, temp);
+function isInclude(courses2, info2, id) {
+    cred[info2].courses.push(arr[courses2]);
+    cred2 = JSON.stringify(cred);
+    localStorage.setItem("info", cred2);
+    document.getElementById(`${id}`).disabled='true';
+}
+
+function isRemoved(courses2, info2, id) {
+    cred[info2].courses.splice(tempflag, 1);
+    cred2 = JSON.stringify(cred);
+    localStorage.setItem("info", cred2);
+    document.getElementById(`${id}`).disabled='true';
+}
+
+function addCourse() {
+    name = document.getElementById('name').value;
+    link = document.getElementById('link').value;
+    image = document.getElementById("image").value;
+    if (name && link && image) {
+        arr.push({
+            name: name,
+            link: link,
+            image: image
+        });
+        data = JSON.stringify(arr);
+        localStorage.setItem("courses", data);
+        showCourse();
     }
 }
 
-function addCourse(){
-    name=document.getElementById('name').value;
-    link=document.getElementById('link').value;
-    image=document.getElementById("image").value;
-    arr.push({name: name, link: link, image: image});
-    data=JSON.stringify(arr);
-    localStorage.setItem("courses", data);
-    showCourse(JSON.parse(localStorage.getItem('courses')));
-}
-
-function showCourse(arr){
-    for(; j<arr.length;j++)
-    {
-        document.getElementById("courseArea").innerHTML+=`<div class="card col-3">
+function showCourse() {
+    for (; j < arr.length; j++) {
+        document.getElementById("courseArea").innerHTML += `<div class="card col-3">
         <img class="card-img-top" style="height: 200px;" src=${arr[j].image} alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">${arr[j].name}</h5>
-            <a href=${arr[j].link} class="btn btn-primary">Study</a>
+            <a href=${arr[j].link} class="btn btn-primary" value=${j}>View Course</a>
+            <button class="btn btn-primary" value=${j} data-toggle="modal" onclick="assignCourse(this.value)" data-target="#exampleModalCenter2">Assign Course</button>
         </div>
-        </div>`
+        </div>`;
     }
 }
 
-/*function addCourse(value){
-    str=localStorage.getItem(value);
-    x=JSON.parse(str).courses;
-    isInclude(value, "javascript");
-}*/
+function assignCourse(value) {
+    document.getElementById("listing").innerHTML = "";
+    for (let i = 0; i < lenCred; i++) {
+        if (!cred[i].isAdmin) {
+            if (checkInclude(value, i))
+                document.getElementById("listing").innerHTML += `<div><li class="list-group-item d-flex justify-content-between">${cred[i].username}<button class="btn btn-primary" id=${i} onclick="isInclude(${value}, ${i}, this.id)";>Assign</button></li></div>`;
+            else
+                document.getElementById("listing").innerHTML += `<div><li class="list-group-item d-flex justify-content-between">${cred[i].username}<button class="btn btn-primary" id=${i} onclick="isRemoved(${value}, ${i}, this.id)";>Remove</button></li></div>`;
+        }
+    }
+}
 
-logout.addEventListener("click", function(){
+function checkInclude(courses2, info2) {
+    for (let i = 0; i < cred[info2].courses.length; i++) {
+
+        if (cred[info2].courses[i].name == arr[courses2].name) {
+            tempflag=i;
+            return false;
+        }
+    }
+    return true;
+}
+
+logout.addEventListener("click", function () {
     window.location.replace("index.html");
     sessionStorage.clear();
 });
