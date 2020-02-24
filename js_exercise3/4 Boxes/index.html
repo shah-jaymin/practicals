@@ -12,10 +12,16 @@
   </head>
   <body onload=alertok()>
     <div class='container'>
-        <div id='1' class='box'></div>
-        <div id='2' class='box'>Click Me First</div>
-        <div id='3' class='box'></div>
-        <div id='4' class='box'></div>
+      <div class="center">
+        <div class='row'>
+            <div id='three' class='col-6 box'>3<p id='oops'></p></div>
+            <div id='one' class='col-6 box' onclick=insertText()>1<p>Click Me First</p></div>
+        </div>
+        <div class='row'>
+            <div id='two' class='col-6 box'><p>2</p></div>
+            <div id='four' class='col-6 box'><p>4</p></div>
+        </div>
+    </div class='container'>
     </div>
     <script src="script.js"></script>
     <!-- Optional JavaScript -->
