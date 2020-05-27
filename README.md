@@ -1,3 +1,6 @@
+# Use the universal one-liner in terminal in the project directory:
+## touch .gitignore && echo "node_modules/" >> .gitignore && git rm -r --cached node_modules ; git status
+### Helpful Links
 Linux Basic  
   https://www.youtube.com/watch?v=YHFzr-akOas&list=PLS1QulWo1RIb9WVQGJ_vh-RQusbZgO_As  
   http://www.thegeekstuff.com/2010/11/50-linux-commands/?utm_source=feedburner  
