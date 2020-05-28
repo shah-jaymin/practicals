@@ -1,28 +1,16 @@
-const mysql = require('mysql');
 const express = require('express');
 let app = express();
 const bodyparser = require('body-parser');
+//const db = require('./src/db/server');
+const routes = require('./src/routes/routes');
 
 app.use(bodyparser.json());
 
-let mysqlConnection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'UserDB',
-    multipleStatements: true
-});
-
-mysqlConnection.connect((err) => {
-    if (!err)
-        console.log('DB connection succeded.');
-    else
-        console.log('DB connection failed \n Error : ' + JSON.stringify(err, undefined, 2));
-});
+routes(app);
 
 app.listen(3000, () => console.log('Express server is running at port no: 3000'));
 
-
+/*
 //Get all users
 app.get('/users', (req, res) => {
     mysqlConnection.query('SELECT * FROM user', (err, rows, fields) => {
@@ -76,3 +64,4 @@ app.put('/users', (req, res) => {
             console.log(err);
     })
 });
+*/
