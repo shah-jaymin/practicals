@@ -3,15 +3,15 @@ const expect = require('chai').expect;
 const {Given, When, Then} = require('cucumber');
 
 const dataAccess  = {
-    addUser: () => {},
+    updateUser: () => {},
 }
 let result;
 const sandBox = sinon.createSandbox();
-const addUserStub = sandBox.stub(dataAccess, 'addUser')
+const updateUserStub = sandBox.stub(dataAccess, 'updateUser')
 
 
 const test = () => {
-    return addUserStub.callsFake(details => {
+    return updateUserStub.callsFake(details => {
         for (const key in details) {
             if(!details[key]) {
                 return "false"
@@ -24,9 +24,9 @@ const test = () => {
 
 Given("We have an API", () => {});
 
-When("We provide name {string} , age {string}, and userCode {string}", (name, age, userCode) => {
-    const addUser = test();
-    result = addUser({name, age, userCode})
+When("We provide name {string} , age {string}, userCode {string} and id {string}", (name, age, userCode, id) => {
+    const updateUser = test();
+    result = updateUser({name, age, userCode, id})
 });
 
 Then("We get the result {string}", (res) => {
