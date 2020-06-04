@@ -1,4 +1,4 @@
-const dataAccess = require('../../data-access/index');
+/*const dataAccess = require('../../data-access/index');
 
 exports.addUser = async (userDetails) => {
     try {
@@ -8,4 +8,15 @@ exports.addUser = async (userDetails) => {
         return error
     }   
     
-}
+}*/
+
+module.exports = function makeAddUser({dataAccess}) {
+    return async function addUser(userDetails) {
+        try {
+            const result = await dataAccess.addUser(userDetails);
+            if(result) return result;
+        } catch (error) {
+            return error;
+        }
+    }
+};
