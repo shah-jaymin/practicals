@@ -1,4 +1,4 @@
-const dataAccess = require('../../data-access/index');
+/*const dataAccess = require('../../data-access/index');
 
 exports.deleteUser = async (userDetails) => {
     try {
@@ -8,4 +8,15 @@ exports.deleteUser = async (userDetails) => {
         return error
     }   
     
-}
+}*/
+
+module.exports = function makeDeleteUser({dataAccess}) {
+    return async function deleteUser(userDetails) {
+        try {
+            const result = await dataAccess.deleteUser(userDetails);
+            if(result) return result;
+        } catch (error) {
+            return error;
+        }
+    }
+};
